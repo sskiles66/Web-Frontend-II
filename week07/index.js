@@ -1,18 +1,20 @@
-const places = document.querySelector("#places");
+const places = document.querySelector(".places");
 
 
 const submitButton = document.querySelector("#submit");
     submitButton.addEventListener("click", function(event) {
+        places.classList.remove("hide");
         event.preventDefault();
         places.replaceChildren();
         console.log(document.querySelector("#place").value)
         url = `https://api.inaturalist.org/v1/places/autocomplete?q=${document.querySelector("#place").value}`;
-        fetchStuff(url);
+        fetchPlaces(url);
        
     });
 
 
-async function fetchStuff(url){
+async function fetchPlaces(url){
+
     const response = await fetch(url);
     const data = await response.json();
     console.log(data.results);
@@ -23,7 +25,7 @@ async function fetchStuff(url){
         places.appendChild(li);
         li.addEventListener("click", function(event) {
             event.preventDefault();
-            fetchMoreStuff(`https://api.inaturalist.org/v1/identifications/${element.id}`)
+            fetchIdentifications(`https://api.inaturalist.org/v1/identifications/${element.id}`)
            
            
         });
@@ -35,7 +37,7 @@ async function fetchStuff(url){
 
 
 
-async function fetchMoreStuff(url){
+async function fetchIdentifications(url){
     const response = await fetch(url);
     const data = await response.json();
     document.querySelector("#ids").replaceChildren();

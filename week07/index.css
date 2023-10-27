@@ -4,7 +4,7 @@ form {
 
 }
 
-#places {
+.places {
     display: flex;
     padding: 50px;
     margin: 50px;
@@ -14,7 +14,11 @@ form {
     border: solid black 5px;
 }
 
-#places >* {
+.hide {
+    display: none;
+}
+
+.places >* {
     padding: 10px;
 
 }
