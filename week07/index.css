@@ -1,0 +1,25 @@
+form {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+#places {
+    display: flex;
+    padding: 50px;
+    margin: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    border: solid black 5px;
+}
+
+#places >* {
+    padding: 10px;
+
+}
+
+#ids {
+    display: flex;
+    justify-content: space-around;
+}
